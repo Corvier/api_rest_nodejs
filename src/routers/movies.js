@@ -1,17 +1,13 @@
 const { Router } = require('express');
 const movies = require('../api.json');
+const underscore = require("underscore");
 const router = Router();
 
 router.get('/', (req, res) => {
-    const data = {
-        "nickname": "Corvier",
-        "github": "https://github.com/Corvier",
-    };
     res.json(movies);
 });
 
 router.post('/', (req, res) => {
-    // console.log(req.body[1]);
     const { title, year, rating } = req.body;
 
     if (title && year && rating) {
@@ -22,6 +18,17 @@ router.post('/', (req, res) => {
     } else {
         res.status(500).json({ "error": "There was an error." });
     }
+});
+
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    underscore.each(movies, (movie, i) => {
+        if (movie.id == id) {
+            movies.splice(i, 1);
+        }
+    })
+    console.log(req.params);
+    res.send(movies);
 });
 
 

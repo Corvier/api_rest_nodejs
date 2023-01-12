@@ -1,12 +1,18 @@
 [
     {
         "id": "1",
+        "nickname": "Corvier",
+        "github": "https://github.com/Corvier",
+        "age": "25"
+    },
+    {
+        "id": "2",
         "title": "James Cameron",
         "year": "1869",
         "rating": "5"
     },
     {
-        "id": "2",
+        "id": "3",
         "title": "The Ruins",
         "year": "2005",
         "rating": "5"
