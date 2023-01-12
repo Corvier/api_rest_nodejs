@@ -12,8 +12,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // routes
-app.use(require('./routers/router'))
-app.use('/api/movies', require('./routers/movies'))
+app.use(require('./routers/router'));
+app.use('/api/movies', require('./routers/movies'));
+// app.use('/api/users', require('./routers/users'));
 
 // starting the server
 app.listen(app.get('port'), () => console.log(`Example app listening on port http://localhost:${app.get('port')}`));
