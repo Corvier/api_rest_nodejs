@@ -31,5 +31,23 @@ router.delete('/:id', (req, res) => {
     res.send(movies);
 });
 
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, year, rating } = req.body;
+
+    if (title && year && rating) {
+        underscore.each(movies, (movie, i) => {
+            if (movie.id == id) {
+                movie.title = title;
+                movie.year = year;
+                movie.rating = rating;
+            }
+        });
+        res.json(movies);
+    } else {
+        res.status(500).json({ error: "There was an error!" });
+    }
+});
+
 
 module.exports = router;
